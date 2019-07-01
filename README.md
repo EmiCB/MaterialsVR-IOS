@@ -5,6 +5,7 @@ Using: Unity 2018.4.1f1, GVR 1.200
 Materials VR uses virtual reality to help students visualize molecules. Molecules can be selected from a list and moved around by the user. The Google Cardboard version (this one currently) includes gaze input which allows the user to gaze at a button for 2 seconds to activate it.
 
 Current platforms: iOS
+
 Supported VR devices: Google Cardboard
 
 # Editing the Project
@@ -26,18 +27,18 @@ Supported VR devices: Google Cardboard
 ### BuildAssetBundles.cs
 Add your new build target into the build target sub directories array
 Ex:
-```cs
-string[] buildTargetSubDirs = { "", "/iOS", "/Android”, “/NewPlatform" };
+```csharp
+string[] buildTargetSubDirs = { "", "/iOS", "/Android", "/NewPlatform" };
 ```
 Add a build pipeline line to create the bundles
 Ex:
-```cs
+```csharp
 BuildPipeline.BuildAssetBundles(assetBundleDirectory + buildTargetSubDirs[3], BuildAssetBundleOptions.None, BuildTarget.NewPlatform);
 ```
 
 ### LoadAssetBundles.cs
 Add the new platform into the getAssetBundlePlatformFolder method
 Ex:
-```cs
-if (currentPlatform == RuntimePlatform.NewPlatform) return “NewPlatform";
+```csharp
+if (currentPlatform == RuntimePlatform.NewPlatform) return "NewPlatform";
 ```
