@@ -26,18 +26,18 @@ Supported VR devices: Google Cardboard
 ### BuildAssetBundles.cs
 Add your new build target into the build target sub directories array
 Ex:
-'''cs
+```cs
 string[] buildTargetSubDirs = { "", "/iOS", "/Android”, “/NewPlatform" };
-'''
+```
 Add a build pipeline line to create the bundles
 Ex:
-'''cs
+```cs
 BuildPipeline.BuildAssetBundles(assetBundleDirectory + buildTargetSubDirs[3], BuildAssetBundleOptions.None, BuildTarget.NewPlatform);
-'''
+```
 
 ### LoadAssetBundles.cs
 Add the new platform into the getAssetBundlePlatformFolder method
 Ex:
-'''cs
+```cs
 if (currentPlatform == RuntimePlatform.NewPlatform) return “NewPlatform";
-'''
+```
