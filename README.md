@@ -1,4 +1,4 @@
-# MaterialsVR-IOS
+# MaterialsVRApp
 ## Description
 Using: Unity 2018.4.1f1, GVR 1.200
 
