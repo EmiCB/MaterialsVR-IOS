@@ -24,6 +24,7 @@ public class BuildAssetBundles {
 
         //NOTE copy and paste lines below and change target and path for aditional build targets
         //TODO make into loop somehow?
+
         //builds to directory, uses LZMA compression & LZ4 recompression, builds for iOS
         BuildPipeline.BuildAssetBundles(assetBundleDirectory + buildTargetSubDirs[1], BuildAssetBundleOptions.None, BuildTarget.iOS);
         //builds to directory, uses LZMA compression & LZ4 recompression, builds for Android

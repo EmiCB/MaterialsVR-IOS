@@ -22,8 +22,6 @@ using UnityEngine;
 
 namespace Gvr.Internal
 {
-    using GoogleVR.Beta;
-
     /// <summary>A class for providing instant preview controller implementations.</summary>
     class InstantPreviewControllerProvider
     {
@@ -62,9 +60,9 @@ namespace Gvr.Internal
             [MarshalAs(UnmanagedType.U1)]
             public bool gripButtonState;
             // Beta field.
-            public GvrBetaControllerInput.Configuration betaConfigurationType;
+            //public GvrBetaControllerInput.Configuration betaConfigurationType;
             // Beta field.
-            public GvrBetaControllerInput.TrackingStatusFlags betaTrackingStatusFlags;
+            //public GvrBetaControllerInput.TrackingStatusFlags betaTrackingStatusFlags;
         }
 
         private GvrControllerButton[] prevButtonsState = new GvrControllerButton[MAX_NUM_CONTROLLERS];
@@ -142,6 +140,7 @@ namespace Gvr.Internal
         /// <param name="betaOutState">The controller to write data to.</param>
         /// <param name="controller_id">The controller id to fetch data for.</param>
         /// <remarks>This surfaces only Beta features and will be removed in the future.</remarks>
+        /*
         internal void ReadBetaState(GvrBetaControllerState betaOutState, int controller_id)
         {
             if (controller_id >= MAX_NUM_CONTROLLERS)
@@ -154,6 +153,7 @@ namespace Gvr.Internal
             betaOutState.betaConfigurationType = nativeControllerState.betaConfigurationType;
             betaOutState.betaTrackingStatusFlags = nativeControllerState.betaTrackingStatusFlags;
         }
+        */
     }
 }
 #endif

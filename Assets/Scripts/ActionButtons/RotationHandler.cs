@@ -5,9 +5,9 @@ public class RotationHandler : MonoBehaviour {
     private GameObject[] molecules;
     private GameObject molecule;
 
-    private bool isRotating;
-    [SerializeField]
-    private float speed;
+    public bool isRotating;
+
+    private float speed = 45.0f;
 
     void Start() {
         StartCoroutine(Startup());

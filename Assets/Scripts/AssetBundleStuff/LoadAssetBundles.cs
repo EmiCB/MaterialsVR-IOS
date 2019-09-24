@@ -12,7 +12,7 @@ public class LoadAssetBundles : MonoBehaviour {
 
     private string assetBundleServerURL = "";
 
-    void Start() {
+    void Awake() {
         //change to correct path after assetbundles have been uploaded
         assetBundleServerURL = "https://emicb.github.io/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
 

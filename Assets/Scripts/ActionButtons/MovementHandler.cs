@@ -6,18 +6,22 @@ public class MovementHandler : MonoBehaviour {
     private GameObject[] molecules;
     private GameObject molecule;
 
-    private bool canMove;
+    public bool canMove;
+
     private bool isDragging;
 
     SphereCollider sc;
     EventTrigger et;
     GvrPointerPhysicsRaycaster gvrPhysicsRaycaster;
 
+    DisplayControlsHandler dch;
+
     void Start() {
         StartCoroutine(Startup());
+        dch = FindObjectOfType<DisplayControlsHandler>();
     }
     void Update() {
-        if(molecules.Length != 0) {
+        if(molecules.Length != 0 && dch.isDisplaying == false) {
             //find active molecule
             for (int i = 0; i < molecules.Length; i++) {
                 if (molecules[i].activeSelf) molecule = molecules[i];
@@ -28,30 +32,28 @@ public class MovementHandler : MonoBehaviour {
 
             //add components if they do not exist
             if (sc == null) {
-                molecule.AddComponent<SphereCollider>();
+                sc = molecule.AddComponent<SphereCollider>();
 
                 //get current componenets on molecule
-                getMoleculeComponents();
+                //getMoleculeComponents();
 
                 //set radius for sphere collider
                 sc.radius = 9.0f;
             }
             if (et == null) {
-                molecule.AddComponent<EventTrigger>();
+                et = molecule.AddComponent<EventTrigger>();
 
                 //get current componenets on molecule
-                getMoleculeComponents();
+                //getMoleculeComponents();
 
                 //set up event trigger
-                EventTrigger.Entry entry1 = new EventTrigger.Entry
-                {
+                EventTrigger.Entry entry1 = new EventTrigger.Entry {
                     eventID = EventTriggerType.PointerDown
                 };
                 entry1.callback.AddListener((data) => { OnPointerDown((PointerEventData)data); });
                 et.triggers.Add(entry1);
 
-                EventTrigger.Entry entry2 = new EventTrigger.Entry
-                {
+                EventTrigger.Entry entry2 = new EventTrigger.Entry {
                     eventID = EventTriggerType.PointerUp
                 };
                 entry2.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
@@ -66,11 +68,11 @@ public class MovementHandler : MonoBehaviour {
     }
 
     public void OnPointerDown(PointerEventData data) {
-        Debug.Log("Pointer down");
+        //Debug.Log("Pointer down");
         isDragging = true;
     }
     public void OnPointerUp(PointerEventData data) {
-        Debug.Log("Pointer up");
+        //Debug.Log("Pointer up");
         isDragging = false;
     }
 

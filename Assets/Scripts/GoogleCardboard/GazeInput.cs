@@ -51,6 +51,10 @@ public class GazeInput : MonoBehaviour {
             if (gameObject.GetComponentInChildren<Text>().text == "Toggle Movement") {
                 GameObject.FindGameObjectWithTag("GameController").GetComponent<MovementHandler>().OnClick();
             }
+            //presses display controls button
+            if (gameObject.GetComponentInChildren<Text>().text == "Display Controls") {
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<DisplayControlsHandler>().OnClick();
+            }
         }
     }
 }

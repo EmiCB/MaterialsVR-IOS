@@ -4,7 +4,7 @@ Using: Unity 2018.4.1f1, GVR 1.200
 
 Materials VR uses virtual reality to help students visualize molecules. Molecules can be selected from a list and moved around by the user. The Google Cardboard version (this one currently) includes gaze input which allows the user to gaze at a button for 2 seconds to activate it.
 
-Current platforms: iOS
+Current platforms: iOS, Android
 
 Supported VR devices: Google Cardboard
 

@@ -8,6 +8,12 @@ These are some features that we plan to implement in the future.
 - Support for Android and Google Daydream
 - Support for Windows and Acer Mixed Reality headset
 
+## [1.0.1] - 2019-09-15
+### Added
+- Status indicators for rotation and movement modes
+- Display controls button with Google Cardboard controls screen
+- Support for Android devices using Google Cardboard
+
 ## [1.0.0] - 2019-06-30
 ### Added
 - AssetBundles using Unity Web Request (supports multi-platform development)

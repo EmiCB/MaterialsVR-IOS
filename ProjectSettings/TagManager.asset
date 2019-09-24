@@ -7,6 +7,7 @@ TagManager:
   - MoleculeButton
   - ActionButton
   - Molecule
+  - ControlsScreen
   layers:
   - Default
   - TransparentFX
