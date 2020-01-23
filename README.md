@@ -1,12 +1,13 @@
 # MaterialsVRApp
 ## Description
-Using: Unity 2018.4.1f1, GVR 1.200
+Created with [Unity 2018.4.1f1](https://unity.com/) and [GVR 1.200](https://github.com/googlevr/gvr-unity-sdk)
 
 Materials VR uses virtual reality to help students visualize molecules. Molecules can be selected from a list and moved around by the user. The Google Cardboard version (this one currently) includes gaze input which allows the user to gaze at a button for 2 seconds to activate it.
 
-Current platforms: iOS, Android
+**Current platforms:** iOS, Android
+**Supported VR devices:** Google Cardboard
 
-Supported VR devices: Google Cardboard
+Download on the [Play Store!](https://play.google.com/store/apps/details?id=com.unity3d.MoleculesVRAndroidTest)
 
 # Editing the Project
 ## Unity Project Setup

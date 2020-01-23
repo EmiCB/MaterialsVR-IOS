@@ -38,7 +38,8 @@
     android:debuggable="false"
     android:isGame="true"
     android:banner="@drawable/app_banner"
-    android:theme="@style/VrActivityTheme">
+    android:theme="@style/VrActivityTheme"
+    android:usesCleartextTraffic="true">
 
     <activity
       android:label="@string/app_name"

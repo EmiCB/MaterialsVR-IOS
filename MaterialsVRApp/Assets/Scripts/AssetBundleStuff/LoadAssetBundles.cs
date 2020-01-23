@@ -14,30 +14,36 @@ public class LoadAssetBundles : MonoBehaviour {
 
     void Awake() {
         //change to correct path after assetbundles have been uploaded
-        assetBundleServerURL = "https://emicb.github.io/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
+        //assetBundleServerURL = "https://emicb.github.io/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
+        //assetBundleServerURL = "https://web.engr.illinois.edu/~schleife/vr_phone/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
+        assetBundleServerURL = "https://web.engr.illinois.edu/~schleife/vr_phone/MoleculeBundles/Android/molecules";
 
         #if UNITY_EDITOR
-        //URLs for testing in the editor
-        assetBundleServerURL = "https://emicb.github.io/MoleculeBundles/iOS/molecules";
-        //assetBundleServerURL = "http://web.engr.illinois.edu/~schleife/vr_app/AssetBundles/Android/molecules";
+        //URL for testing in the editor
+        //assetBundleServerURL = "https://emicb.github.io/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
         #endif
 
         //get anf load the assetbundle
         StartCoroutine(GetAssetBundle());
     }
 
-    //NOTE add new if statement for any additional platforms
+    //NOTE: add new if statement for any additional platforms
     //function to get correct path by checking the current platform
     public string getAssetBundlePlatformFolder() {
         RuntimePlatform currentPlatform = Application.platform;
+        Debug.Log(currentPlatform);
 
         if (currentPlatform == RuntimePlatform.IPhonePlayer) return "iOS";
         if (currentPlatform == RuntimePlatform.Android) return "Android";
-        return "";
+
+        //defaults to android
+        return "Android";
     }
 
     //coroutine to get assetbundle from webserver
     IEnumerator GetAssetBundle() {
+        Debug.Log(assetBundleServerURL);
+
         //web request to get assetbundle from webserver, skips crc
         webRequest = UnityWebRequestAssetBundle.GetAssetBundle(assetBundleServerURL, 0);
         Debug.Log(webRequest == null ? "Web request does not exist" : "Web request is present");

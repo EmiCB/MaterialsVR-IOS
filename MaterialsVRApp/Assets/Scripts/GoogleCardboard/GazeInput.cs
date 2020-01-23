@@ -56,5 +56,11 @@ public class GazeInput : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("GameController").GetComponent<DisplayControlsHandler>().OnClick();
             }
         }
+        //for controls screen buttons
+        else if (gameObject.tag == "ExitControls") {
+            if (gameObject.GetComponentInChildren<Text>().text == "Exit") {
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<DisplayControlsHandler>().OnClick();
+            }
+        }
     }
 }
