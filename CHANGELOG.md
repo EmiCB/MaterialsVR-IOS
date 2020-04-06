@@ -8,6 +8,10 @@ These are some features that we plan to implement in the future.
 * Support for Google Daydream
 * Support for Windows and Acer Mixed Reality headset
 
+## [1.1.1] - 2020-2-17
+### Fixed
+* App no longer stops running
+
 ## [1.1.0] "Official Android Release" - 2020-1-22
 ### Changed
 * User moved back to create a more comfortable distance from UI elements and molecules

@@ -15,13 +15,8 @@ public class LoadAssetBundles : MonoBehaviour {
     void Awake() {
         //change to correct path after assetbundles have been uploaded
         //assetBundleServerURL = "https://emicb.github.io/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
-        //assetBundleServerURL = "https://web.engr.illinois.edu/~schleife/vr_phone/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
-        assetBundleServerURL = "https://web.engr.illinois.edu/~schleife/vr_phone/MoleculeBundles/Android/molecules";
-
-        #if UNITY_EDITOR
-        //URL for testing in the editor
-        //assetBundleServerURL = "https://emicb.github.io/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
-        #endif
+        //assetBundleServerURL = "https://schleife.web.illinois.edu/vr_phone/MoleculeBundles/Android/molecules";
+        assetBundleServerURL = "https://schleife.web.illinois.edu/vr_phone/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
 
         //get anf load the assetbundle
         StartCoroutine(GetAssetBundle());
