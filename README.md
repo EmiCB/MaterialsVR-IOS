@@ -1,4 +1,7 @@
 # MaterialsVRApp
+https://www.uillinois.edu/cms/One.aspx?portalId=1324&pageId=1465359
+https://www.uillinois.edu/cms/One.aspx?portalId=1324&pageId=1465360 
+
 ## Description
 Created with [Unity 2018.4.1f1](https://unity.com/) and [GVR 1.200](https://github.com/googlevr/gvr-unity-sdk)
 
