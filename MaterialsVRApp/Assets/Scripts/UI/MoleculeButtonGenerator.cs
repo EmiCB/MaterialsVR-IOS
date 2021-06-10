@@ -3,46 +3,49 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
+/// <summary>
+/// This class automatically generates UI buttons for each molecule pulled from the AssetBundle webserver.
+/// </summary>
 public class MoleculeButtonGenerator : MonoBehaviour {
     public RectTransform parentPanel;
 
-    private GameObject[] molecules;
-    private GameObject buttonPrefab;
+    private GameObject[] _molecules;
+    private GameObject _buttonPrefab;
 
-    private int maxButtons;
+    private int _maxButtons;
 
     void Start() {
         StartCoroutine(Startup());
     }
 
     /// <summary>
-    /// Generate button prefabs from asset bundle molecules into scrollable list.
+    /// Generates button prefabs from the AssetBundle molecules and puts them into the scrollable list.
     /// </summary>
     void GenerateButtons() {
-        // set max number of buttons to length of molecule array
-        maxButtons = molecules.Length;
+        // set max number of buttons to length of the molecule array
+        _maxButtons = _molecules.Length;
 
-        // create buttons
-        for (int i = 0; i < maxButtons; i++) {
-            GameObject newButton = Instantiate(buttonPrefab);
+        // create buttons for each molecule
+        for (int i = 0; i < _maxButtons; i++) {
+            GameObject newButton = Instantiate(_buttonPrefab);
             newButton.transform.SetParent(parentPanel, false);
-            newButton.GetComponentInChildren<TMP_Text>().text = molecules[i].name;
-            Debug.Log("Button generated for " + molecules[i].name);
+            newButton.GetComponentInChildren<TMP_Text>().text = _molecules[i].name;
+            Debug.Log("Button generated for " + _molecules[i].name);
         }
 
-        // remove initial button prefab object after making the buttons
-        Destroy(buttonPrefab);
+        // remove original button prefab object after all buttons have been made
+        Destroy(_buttonPrefab);
     }
 
     /// <summary>
-    /// Coroutine that runs at launch to collect molecule data.
+    /// Coroutine that runs at program launch to collect molecule data.
     /// </summary>
     IEnumerator Startup() {
-        //wait until assetbundle has loaded & then set the array of molecules
+        // wait until assetbundle has loaded & then set the array of molecules
         yield return new WaitUntil(() => GetComponent<LoadAssetBundles>().moleculeList.Length != 0);
-        molecules = GetComponent<LoadAssetBundles>().moleculeList;
-        //find the button prefab to use as a base
-        buttonPrefab = GameObject.Find("Molecule Button");
+        _molecules = GetComponent<LoadAssetBundles>().moleculeList;
+        // find the button prefab to use as a base
+        _buttonPrefab = GameObject.Find("Molecule Button");
         GenerateButtons();
     }
 }

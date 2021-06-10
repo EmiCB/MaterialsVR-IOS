@@ -10,6 +10,8 @@ Check out `CHANGELOG.md` to see what's changed and [our roadmap](https://github.
 
 Uses [Unity 2019.4.26f1 (LTS)](https://unity.com/) and [Joaoborks' Patch to the CardboardXR Plugin](https://github.com/joaoborks/cardboard-xr-plugin/tree/feature/xr_interaction).
 
+This code follows [Google's C# Styleguide](https://google.github.io/styleguide/csharp-style.html).
+
 &nbsp;
 
 **Current platforms:** iOS, Android

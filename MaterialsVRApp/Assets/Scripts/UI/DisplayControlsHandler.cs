@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// This class handles the toggling of the controls screen when the corresponding UI button is pressed.
+/// </summary>
 public class DisplayControlsHandler : MonoBehaviour {
     public GameObject[] molecules;
     public GameObject molecule;
@@ -15,13 +18,13 @@ public class DisplayControlsHandler : MonoBehaviour {
     }
 
     void Update() {
-        //find active molecule
+        // find active molecule
         if (molecules.Length != 0) {
             for (int i = 0; i < molecules.Length; i++) {
                 if (molecules[i].activeSelf) molecule = molecules[i];
             }
 
-            //toggle display and molecule accordingly
+            // toggle display and molecule accordingly
             if (isDisplaying) {
                 cardboardControls.SetActive(true);
                 molecule.SetActive(false);
@@ -34,6 +37,9 @@ public class DisplayControlsHandler : MonoBehaviour {
         
     }
 
+    /// <summary>
+    /// Toggles control display visibility when UI button is triggered.
+    /// </summary>
     public void OnClick() {
         if (isDisplaying) isDisplaying = false;
         else isDisplaying = true;

@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// This class toggles the rotation of the molecule.
+/// </summary>
 public class RotationHandler : MonoBehaviour {
-    private GameObject[] molecules;
-    private GameObject molecule;
+    private GameObject[] _molecules;
+    private GameObject _molecule;
 
     public bool isRotating;
 
-    private float speed = 45.0f;
+    private float _speed = 45.0f;
 
     void Start() {
         StartCoroutine(Startup());
@@ -15,12 +18,12 @@ public class RotationHandler : MonoBehaviour {
 
     private void Update() {
         // find active molecule
-        if(molecules.Length != 0) {
-            for (int i = 0; i < molecules.Length; i++) {
-                if (molecules[i].activeSelf) molecule = molecules[i];
+        if(_molecules.Length != 0) {
+            for (int i = 0; i < _molecules.Length; i++) {
+                if (_molecules[i].activeSelf) _molecule = _molecules[i];
             }
             // rotate active molecule
-            if (isRotating) molecule.transform.Rotate(Vector3.up * speed * Time.deltaTime);
+            if (isRotating) _molecule.transform.Rotate(Vector3.up * _speed * Time.deltaTime);
         }
     }
 
@@ -34,8 +37,8 @@ public class RotationHandler : MonoBehaviour {
     IEnumerator Startup() {
         GameObject programManager = GameObject.FindGameObjectWithTag("GameController");
         yield return new WaitUntil(() => programManager.GetComponent<LoadAssetBundles>().moleculeList.Length != 0);
-        molecules = programManager.GetComponent<LoadAssetBundles>().instantiatedMolecules;
-        //is not rotating by default - must be toggled with button first
+        _molecules = programManager.GetComponent<LoadAssetBundles>().instantiatedMolecules;
+        // is not rotating by default - must be toggled with button first
         isRotating = false;
     }
 }

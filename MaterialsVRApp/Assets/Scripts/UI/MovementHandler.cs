@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// This class toggles the the ability for the player to move the molecule.
+/// </summary>
 public class MovementHandler : MonoBehaviour {
     private GameObject[] molecules;
     private GameObject molecule;

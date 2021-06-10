@@ -2,6 +2,9 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
+/// <summary>
+/// This class handles the loading of AssetBundles.
+/// </summary>
 public class LoadAssetBundles : MonoBehaviour {
     public AssetBundle moleculeAssetBundle;
 
@@ -9,13 +12,11 @@ public class LoadAssetBundles : MonoBehaviour {
     public GameObject[] instantiatedMolecules;
 
     private UnityWebRequest webRequest;
-
     private string assetBundleServerURL = "";
 
     void Awake() {
         // set path correctly based on current device platform
         assetBundleServerURL = "https://schleife.web.illinois.edu/vr_phone/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
-        
         // get and load the assetbundle
         StartCoroutine(GetAssetBundle());
     }
@@ -23,10 +24,12 @@ public class LoadAssetBundles : MonoBehaviour {
     /// <summary>
     /// Gets the correct AssetBundle URL by checking the current platform.
     /// </summary>
-    /// <remarks>Add in a new "if" statement for any additional platforms.</remarks>
+    /// <returns>The string matching the build platform.</returns>
+    /// <remarks>
+    /// Add in a new "if" statement for any additional platforms.
+    /// </remarks>
     public string getAssetBundlePlatformFolder() {
         RuntimePlatform currentPlatform = Application.platform;
-        Debug.Log(currentPlatform);
 
         if (currentPlatform == RuntimePlatform.IPhonePlayer) return "iOS";
         if (currentPlatform == RuntimePlatform.Android) return "Android";
@@ -46,7 +49,7 @@ public class LoadAssetBundles : MonoBehaviour {
         Debug.Log(webRequest == null ? "Web request does not exist" : "Web request is present");
         yield return webRequest.SendWebRequest();
 
-        // load asset bundle
+        // load assetbundle
         moleculeAssetBundle = DownloadHandlerAssetBundle.GetContent(webRequest);
         Debug.Log(moleculeAssetBundle == null ? "Failed to load AssetBundle" : "Successfully Loaded AssetBundle");
 

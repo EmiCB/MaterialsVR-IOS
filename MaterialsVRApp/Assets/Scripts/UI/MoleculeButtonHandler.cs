@@ -3,12 +3,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// This class swaps the displayed molecule based on the player's selection.
+/// </summary>
 public class MoleculeButtonHandler : MonoBehaviour {
-    private GameObject[] molecules;
-    private string[] moleculeNames;
+    private GameObject[] _molecules;
+    private string[] _moleculeNames;
 
-    private string moleculeName;
-    private string currentMoleculeName;
+    private string _moleculeName;
+    private string _currentMoleculeName;
     
     void Start() {
         StartCoroutine(Startup());
@@ -18,40 +21,40 @@ public class MoleculeButtonHandler : MonoBehaviour {
     /// Display selected molecule when button is clicked.
     /// </summary>
     public void OnClick() {
-        //find active molecule
-        for (int i = 0; i < molecules.Length; i++) {
-            if (molecules[i].activeSelf) {
-                currentMoleculeName = molecules[i].name;
-                Debug.Log("Currently active molecule: " + currentMoleculeName);
+        // find active molecule
+        for (int i = 0; i < _molecules.Length; i++) {
+            if (_molecules[i].activeSelf) {
+                _currentMoleculeName = _molecules[i].name;
+                Debug.Log("Currently active molecule: " + _currentMoleculeName);
             }
         }
         
         // get selected molecule name
-        moleculeName = gameObject.GetComponentInChildren<TMP_Text>().text + "(Clone)";
-        Debug.Log("Selected molecule name: " + moleculeName);
+        _moleculeName = gameObject.GetComponentInChildren<TMP_Text>().text + "(Clone)";
+        Debug.Log("Selected molecule name: " + _moleculeName);
 
-        //loop through molecules to find selected one
-        for (int i = 0; i < molecules.Length; i++) {
-            if (moleculeName == molecules[i].name) {
-                GameObject.Find(currentMoleculeName).SetActive(false);
-                molecules[i].SetActive(true);
+        // loop through molecules to find selected one
+        for (int i = 0; i < _molecules.Length; i++) {
+            if (_moleculeName == _molecules[i].name) {
+                GameObject.Find(_currentMoleculeName).SetActive(false);
+                _molecules[i].SetActive(true);
             }
         }
     }
 
     /// <summary>
-    /// Coroutine that runs at launch to collect molecule data.
+    /// Coroutine that runs at program launch to collect molecule data.
     /// </summary>
     IEnumerator Startup() {
         GameObject programManager = GameObject.FindGameObjectWithTag("GameController");
-        //wait until assetbundle has loaded & then set the array of molecules
+        // wait until assetbundle has loaded & then set the array of molecules
         yield return new WaitUntil(() => programManager.GetComponent<LoadAssetBundles>().moleculeList.Length != 0);
-        //add names to array
-        molecules = programManager.GetComponent<LoadAssetBundles>().moleculeList;
-        moleculeNames = new string[molecules.Length];
-        for(int i = 0; i < molecules.Length; i++) {
-            moleculeNames[i] = molecules[i].name;
+        // add names to array
+        _molecules = programManager.GetComponent<LoadAssetBundles>().moleculeList;
+        _moleculeNames = new string[_molecules.Length];
+        for(int i = 0; i < _molecules.Length; i++) {
+            _moleculeNames[i] = _molecules[i].name;
         }
-        molecules = programManager.GetComponent<LoadAssetBundles>().instantiatedMolecules;
+        _molecules = programManager.GetComponent<LoadAssetBundles>().instantiatedMolecules;
     }
 }
