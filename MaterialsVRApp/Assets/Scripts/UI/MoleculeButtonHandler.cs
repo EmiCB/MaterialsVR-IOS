@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using MVR.AssetBundles;
+
+namespace MVR {
+
 /// <summary>
 /// This class swaps the displayed molecule based on the player's selection.
 /// </summary>
@@ -58,3 +62,5 @@ public class MoleculeButtonHandler : MonoBehaviour {
         _molecules = programManager.GetComponent<LoadAssetBundles>().instantiatedMolecules;
     }
 }
+
+} // namespace MVR

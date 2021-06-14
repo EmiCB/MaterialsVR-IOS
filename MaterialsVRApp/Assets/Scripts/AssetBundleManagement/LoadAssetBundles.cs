@@ -2,21 +2,25 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
+namespace MVR {
+namespace AssetBundles {
+
 /// <summary>
 /// This class handles the loading of AssetBundles.
 /// </summary>
 public class LoadAssetBundles : MonoBehaviour {
-    public AssetBundle moleculeAssetBundle;
+    private AssetBundle _moleculeAssetBundle;
 
-    public GameObject[] moleculeList;
     public GameObject[] instantiatedMolecules;
+    public GameObject[] moleculeList;
 
-    private UnityWebRequest webRequest;
-    private string assetBundleServerURL = "";
+    private UnityWebRequest _webRequest;
+    private string _assetBundleServerURL = "";
 
-    void Awake() {
+    private void Awake() {
         // set path correctly based on current device platform
-        assetBundleServerURL = "https://schleife.web.illinois.edu/vr_phone/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
+        _assetBundleServerURL = "https://schleife.web.illinois.edu/vr_phone/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
+        
         // get and load the assetbundle
         StartCoroutine(GetAssetBundle());
     }
@@ -28,7 +32,7 @@ public class LoadAssetBundles : MonoBehaviour {
     /// <remarks>
     /// Add in a new "if" statement for any additional platforms.
     /// </remarks>
-    public string getAssetBundlePlatformFolder() {
+    private string getAssetBundlePlatformFolder() {
         RuntimePlatform currentPlatform = Application.platform;
 
         if (currentPlatform == RuntimePlatform.IPhonePlayer) return "iOS";
@@ -41,20 +45,20 @@ public class LoadAssetBundles : MonoBehaviour {
     /// <summary>
     /// Gets the AssetBundle from the webserver.
     /// </summary>
-    IEnumerator GetAssetBundle() {
-        Debug.Log("Fetching AssetBundle from: " + assetBundleServerURL);
+    private IEnumerator GetAssetBundle() {
+        Debug.Log("Fetching AssetBundle from: " + _assetBundleServerURL);
 
         // web request to get assetbundle from webserver, skips crc
-        webRequest = UnityWebRequestAssetBundle.GetAssetBundle(assetBundleServerURL, 0);
-        Debug.Log(webRequest == null ? "Web request does not exist" : "Web request is present");
-        yield return webRequest.SendWebRequest();
+        _webRequest = UnityWebRequestAssetBundle.GetAssetBundle(_assetBundleServerURL, 0);
+        Debug.Log(_webRequest == null ? "Web request does not exist" : "Web request is present");
+        yield return _webRequest.SendWebRequest();
 
         // load assetbundle
-        moleculeAssetBundle = DownloadHandlerAssetBundle.GetContent(webRequest);
-        Debug.Log(moleculeAssetBundle == null ? "Failed to load AssetBundle" : "Successfully Loaded AssetBundle");
+        _moleculeAssetBundle = DownloadHandlerAssetBundle.GetContent(_webRequest);
+        Debug.Log(_moleculeAssetBundle == null ? "Failed to load AssetBundle" : "Successfully Loaded AssetBundle");
 
         // add all prefab names into array of molecules
-        moleculeList = moleculeAssetBundle.LoadAllAssets<GameObject>();
+        moleculeList = _moleculeAssetBundle.LoadAllAssets<GameObject>();
 
         // instantiate molecules, add them to array of loaded molecules, and set inactive
         instantiatedMolecules = new GameObject[moleculeList.Length];
@@ -69,3 +73,8 @@ public class LoadAssetBundles : MonoBehaviour {
         randomMolecule.SetActive(true);
     }
 }
+
+
+
+} // namespace AssetBundles
+} // namespace MVR

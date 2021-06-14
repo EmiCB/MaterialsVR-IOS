@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+using MVR.AssetBundles;
+
+namespace MVR {
+
 /// <summary>
 /// This class handles the toggling of the controls screen when the corresponding UI button is pressed.
 /// </summary>
@@ -55,3 +59,5 @@ public class DisplayControlsHandler : MonoBehaviour {
         isDisplaying = true;
     }
 }
+
+} // namespace MVR

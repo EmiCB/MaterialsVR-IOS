@@ -3,6 +3,10 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
+using MVR.AssetBundles;
+
+namespace MVR {
+
 /// <summary>
 /// This class automatically generates UI buttons for each molecule pulled from the AssetBundle webserver.
 /// </summary>
@@ -44,8 +48,11 @@ public class MoleculeButtonGenerator : MonoBehaviour {
         // wait until assetbundle has loaded & then set the array of molecules
         yield return new WaitUntil(() => GetComponent<LoadAssetBundles>().moleculeList.Length != 0);
         _molecules = GetComponent<LoadAssetBundles>().moleculeList;
+
         // find the button prefab to use as a base
         _buttonPrefab = GameObject.Find("Molecule Button");
         GenerateButtons();
     }
 }
+
+} // namespace MVR

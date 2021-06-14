@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+using MVR.AssetBundles;
+
+namespace MVR {
+
 /// <summary>
 /// This class toggles the the ability for the player to move the molecule.
 /// </summary>
@@ -114,3 +118,5 @@ public class MovementHandler : MonoBehaviour {
         Gizmos.DrawRay(transform.position, direction);
     }
 }
+
+} // namespace MVR

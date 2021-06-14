@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+using MVR.AssetBundles;
+
+namespace MVR {
+
 /// <summary>
 /// This class toggles the rotation of the molecule.
 /// </summary>
@@ -42,3 +46,5 @@ public class RotationHandler : MonoBehaviour {
         isRotating = false;
     }
 }
+
+} // namespace MVR

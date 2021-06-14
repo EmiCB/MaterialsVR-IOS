@@ -2,11 +2,14 @@
 using System.IO;
 using UnityEngine;
 
+namespace MVR {
+namespace AssetBundles {
+
 /// <summary>
 /// The class handles the building of AssetBundles and creates a menu item under "assets" to run it.
 /// </summary>
 public class BuildAssetBundles {
-    // create menu item under "assets" for BuildAllAssetBundles function.
+    // create menu item under "assets" for BuildAllAssetBundles function
     [MenuItem("Assets/Build AssetBundles")]
 
     /// <summary>
@@ -15,7 +18,7 @@ public class BuildAssetBundles {
     /// <remarks>
     /// Add a new directory to the "buildTargetSubDirs" array and a new BuildPipeline line when adding a new build target.
     /// </remarks>
-    static void BuildAllAssetBundles() {
+    public static void BuildAllAssetBundles() {
         // set up all of the build target sub-directories
         string[] buildTargetSubDirs = { "", "/iOS", "/Android" };
         // preset path to build the bundle in
@@ -30,7 +33,7 @@ public class BuildAssetBundles {
             }
         }
 
-        //TODO: asutomate using buildTargetSubDirs
+        //TODO: automate using buildTargetSubDirs
 
         // builds for iOS to directory, uses LZMA compression & LZ4 recompression
         BuildPipeline.BuildAssetBundles(assetBundleDirectory + buildTargetSubDirs[1], BuildAssetBundleOptions.None, BuildTarget.iOS);
@@ -38,3 +41,6 @@ public class BuildAssetBundles {
         BuildPipeline.BuildAssetBundles(assetBundleDirectory + buildTargetSubDirs[2], BuildAssetBundleOptions.None, BuildTarget.Android);
     }
 }
+
+} // namespace AssetBundles
+} // namespace MVR
