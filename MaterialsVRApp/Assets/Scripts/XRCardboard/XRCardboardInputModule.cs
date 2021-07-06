@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using System.Linq;
 using UnityEngine.UI;
 using System;
+
 #if !UNITY_EDITOR
 using UnityEngine.XR;
 #endif
@@ -76,7 +77,8 @@ public class XRCardboardInputModule : PointerInputModule
             onStartHover?.Invoke(gazeTime);
         }
 
-        if (Time.realtimeSinceStartup > currentTargetClickTime || Input.GetButtonDown(settings.ClickInput))
+        // handle click event
+        if (Time.realtimeSinceStartup > currentTargetClickTime || Input.GetButtonDown(settings.ClickInput) || Input.GetMouseButtonDown(0))
         {
             ExecuteEvents.ExecuteHierarchy(currentTarget, pointerEventData, ExecuteEvents.pointerClickHandler);
             currentTargetClickTime = float.MaxValue;
