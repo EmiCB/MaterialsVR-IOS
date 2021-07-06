@@ -77,7 +77,6 @@ public class XRCardboardReticle : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Clicked!");
         StopHover();
         clickRoutine = ClickFeedback();
     }

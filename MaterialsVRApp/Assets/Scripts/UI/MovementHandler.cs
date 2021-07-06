@@ -18,7 +18,6 @@ public class MovementHandler : MonoBehaviour {
     public bool isDragging;
 
     SphereCollider currentMoleculeCollider;
-
     EventTrigger currentEventTrigger;
 
     DisplayControlsHandler displayControlsHandler;
@@ -76,6 +75,25 @@ public class MovementHandler : MonoBehaviour {
         if (molecule.GetComponent<EventTrigger>() == null) {
             currentEventTrigger = molecule.AddComponent<EventTrigger>();
 
+            //set up event trigger
+            EventTrigger.Entry entry1 = new EventTrigger.Entry {
+                eventID = EventTriggerType.PointerDown
+            };
+            entry1.callback.AddListener((data) => { OnPointerDown((PointerEventData)data); });
+            currentEventTrigger.triggers.Add(entry1);
+
+            EventTrigger.Entry entry2 = new EventTrigger.Entry {
+                eventID = EventTriggerType.PointerUp
+            };
+            entry2.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
+            currentEventTrigger.triggers.Add(entry2);
+        }
+        */
+
+        /*
+        if (molecule.GetComponent<EventTrigger>() == null) {
+            currentEventTrigger = molecule.AddComponent<EventTrigger>();
+
             // set up a pointer down entry
             EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry();
             pointerDownEntry.eventID = EventTriggerType.PointerDown;
@@ -93,6 +111,13 @@ public class MovementHandler : MonoBehaviour {
             currentEventTrigger = molecule.GetComponent<EventTrigger>();
         }
         */
+
+        if (molecule.GetComponent<EventTrigger>() == null) {
+            currentEventTrigger = molecule.AddComponent<EventTrigger>();
+        } else {
+            currentEventTrigger = molecule.GetComponent<EventTrigger>();
+        }
+        
     }
 
     // toggle movement mode when button is clicked
@@ -107,15 +132,6 @@ public class MovementHandler : MonoBehaviour {
         molecules = programManager.GetComponent<LoadAssetBundles>().instantiatedMolecules;
         // controls not displayed by default - must be toggled with button first
         isMovable = false;
-    }
-
-
-    void OnDrawGizmosSelected()
-    {
-        // Draws a 5 unit long red line in front of the object
-        Gizmos.color = Color.red;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
-        Gizmos.DrawRay(transform.position, direction);
     }
 }
 

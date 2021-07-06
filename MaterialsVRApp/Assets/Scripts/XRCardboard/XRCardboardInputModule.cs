@@ -26,21 +26,21 @@ public class XRCardboardInputModule : PointerInputModule
     float currentTargetClickTime = float.MaxValue;
     bool hovering;
 
-    public override void Process()
-    {
+    public override void Process() {
         HandleLook();
         HandleSelection();
     }
 
-    void HandleLook()
-    {
+    void HandleLook() {
         if (pointerEventData == null)
             pointerEventData = new PointerEventData(eventSystem);
-#if UNITY_EDITOR
+
+        #if UNITY_EDITOR
         pointerEventData.position = new Vector2(Screen.width / 2, Screen.height / 2);
-#else
+        #else
         pointerEventData.position = new Vector2(XRSettings.eyeTextureWidth / 2, XRSettings.eyeTextureHeight / 2);
-#endif
+        #endif
+
         pointerEventData.delta = Vector2.zero;
         var raycastResults = new List<RaycastResult>();
         eventSystem.RaycastAll(pointerEventData, raycastResults);
@@ -49,25 +49,22 @@ public class XRCardboardInputModule : PointerInputModule
         ProcessMove(pointerEventData);
     }
 
-    void HandleSelection()
-    {
+    void HandleSelection() {
         GameObject handler;
-        try
-        {
+
+        try {
             handler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(pointerEventData.pointerEnter);
             var selectable = handler.GetComponent<Selectable>();
             if (selectable && selectable.interactable == false)
                 throw new NullReferenceException();
         }
-        catch (NullReferenceException)
-        {
+        catch (NullReferenceException) {
             currentTarget = null;
             StopHovering();
             return;
         }
 
-        if (currentTarget != handler)
-        {
+        if (currentTarget != handler) {
             var gazeTime = settings.GazeTime;
             currentTarget = handler;
             currentTargetClickTime = Time.realtimeSinceStartup + gazeTime;
@@ -78,8 +75,7 @@ public class XRCardboardInputModule : PointerInputModule
         }
 
         // handle click event
-        if (Time.realtimeSinceStartup > currentTargetClickTime || Input.GetButtonDown(settings.ClickInput) || Input.GetMouseButtonDown(0))
-        {
+        if (Time.realtimeSinceStartup > currentTargetClickTime || Input.GetButtonDown(settings.ClickInput) || Input.GetMouseButtonDown(0)) {
             ExecuteEvents.ExecuteHierarchy(currentTarget, pointerEventData, ExecuteEvents.pointerClickHandler);
             currentTargetClickTime = float.MaxValue;
             onClick?.Invoke();
@@ -87,8 +83,7 @@ public class XRCardboardInputModule : PointerInputModule
         }
     }
 
-    void StopHovering()
-    {
+    void StopHovering() {
         if (!hovering)
             return;
         hovering = false;

@@ -65,6 +65,7 @@ public class LoadAssetBundles : MonoBehaviour {
         for (int i = 0; i < moleculeList.Length; i++) {
             Instantiate(moleculeList[i]);
             instantiatedMolecules[i] = GameObject.Find(moleculeList[i].name + "(Clone)");
+            instantiatedMolecules[i].AddComponent<MoleculeController>();
             instantiatedMolecules[i].SetActive(false);
         }
 

@@ -2177,6 +2177,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7287137020585607021, guid: 186741bf17cbb0e4fa3ef06daa1f190f,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287137020585607021, guid: 186741bf17cbb0e4fa3ef06daa1f190f,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287137020585607021, guid: 186741bf17cbb0e4fa3ef06daa1f190f,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7287137020755404943, guid: 186741bf17cbb0e4fa3ef06daa1f190f,
         type: 3}
       propertyPath: far clip plane
@@ -2232,9 +2247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9127b6b93b3924c0d90476a720b56960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeAssetBundle: {fileID: 0}
-  moleculeList: []
   instantiatedMolecules: []
+  moleculeList: []
 --- !u!114 &2061360627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2284,7 +2298,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061360624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9931db6c2fb7fc4fb96ae7c915d5806, type: 3}
   m_Name: 
