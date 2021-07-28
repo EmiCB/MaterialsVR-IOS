@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using System.IO;
 using UnityEngine;
+using System;
 
 namespace MVR {
 namespace AssetBundles {
@@ -22,7 +23,7 @@ public class BuildAssetBundles {
         // set up all of the build target sub-directories
         string[] buildTargetSubDirs = { "", "/iOS", "/Android" };
         // preset path to build the bundle in
-        string assetBundleDirectory = "Desktop/MoleculeBundles";
+        string assetBundleDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/MoleculeBundles";
 
         // create local directories if they does not exist already
         for (int targets = 0; targets < buildTargetSubDirs.Length; targets++) {

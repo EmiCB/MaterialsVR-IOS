@@ -50,6 +50,8 @@ This code follows [Google's C# Style Guide](https://google.github.io/styleguide/
 2. Open with the correct Unity version (2019.4.26f1)
 
 ## Asset Bundle Building Instructions
+[Video Tutorial](https://youtu.be/Dzn0RGZ-Cbs)
+
 1. Export Blender file as a `.fbx`
 2. Drag and drop file into the `~MoleculeModels` folder in Unity 
 3. Drag and drop model into Unity hierarchy from `~MoleculeModels` folder
