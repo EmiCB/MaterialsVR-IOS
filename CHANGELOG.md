@@ -8,7 +8,7 @@ See [our roadmap](https://github.com/EmiCB/MoleculesVRApp/projects/2) to see wha
 
 &nbsp;
 
-## [v1.1.0] - 2021-07-12
+## [v2.1.0] - 2021-08-02
 ### Added
 - Movement mode reimplemented
 ### Changed
@@ -19,7 +19,7 @@ See [our roadmap](https://github.com/EmiCB/MoleculesVRApp/projects/2) to see wha
 
 &nbsp;
 
-## [v1.0.0] - 2021-06-01
+## [v2.0.0] - 2021-06-01
 ### Changed
 - Updated to Unity 2019.4.26f1 (LTS)
 - Now using [Google's Cardboard XR Plugin](https://github.com/googlevr/cardboard-xr-plugin) instead of GVR (deprecated)
@@ -31,13 +31,13 @@ See [our roadmap](https://github.com/EmiCB/MoleculesVRApp/projects/2) to see wha
 
 &nbsp;
 
-## [v0.2.2] - 2020-02-17
+## [v1.2.2] - 2020-02-17
 ### Fixed
 - App no longer stops running
 
 &nbsp;
 
-## [v0.2.1] "Official Android Release" - 2020-01-22
+## [v1.2.1] "Official Android Release" - 2020-01-22
 ### Changed
 - User moved back to create a more comfortable distance from UI elements and molecules
 ### Fixed
@@ -45,7 +45,7 @@ See [our roadmap](https://github.com/EmiCB/MoleculesVRApp/projects/2) to see wha
 
 &nbsp;
 
-## [v0.2.0] - 2019-09-15
+## [v1.2.0] - 2019-09-15
 ### Added
 - Status indicators for rotation and movement modes
 - Display controls button with Google Cardboard controls screen
@@ -53,7 +53,7 @@ See [our roadmap](https://github.com/EmiCB/MoleculesVRApp/projects/2) to see wha
 
 &nbsp;
 
-## [v0.1.0] - 2019-06-30
+## [v1.1.0] - 2019-06-30
 ### Added
 - AssetBundles using Unity Web Request (supports multi-platform development)
 - Google Cardboard support (GVR)
