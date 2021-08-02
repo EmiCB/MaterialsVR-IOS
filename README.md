@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/release-v1.1.0-blue)
+![](https://img.shields.io/badge/release-v2.1.0-blue)
 ![](https://img.shields.io/badge/maintained-yes-green)
 
 # MaterialsVR App
