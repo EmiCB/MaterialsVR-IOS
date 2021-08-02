@@ -1,8 +1,8 @@
-![](https://img.shields.io/badge/release-v1.2.0-blue)
+![](https://img.shields.io/badge/release-v1.1.0-blue)
 ![](https://img.shields.io/badge/maintained-yes-green)
 
 # MaterialsVR App
-Materials VR uses virtual reality to help students visualize molecular structures. Molecules can be selected from a list and rotated around by the user. The Google Cardboard version includes gaze input which allows the user to gaze at a button for 2 seconds to interact with it.
+Materials VR uses virtual reality to help students visualize molecular structures. Molecules can be selected from a list and moved around by the user. The Google Cardboard version includes gaze input which allows the user to gaze at a button for 2 seconds to interact with it.
 
 Please read our [Privacy Policy](https://www.uillinois.edu/cms/One.aspx?portalId=1324&pageId=1465359) and [Terms of Service](https://www.uillinois.edu/cms/One.aspx?portalId=1324&pageId=1465360).
 
@@ -10,7 +10,7 @@ Check out `CHANGELOG.md` to see what's changed and [our roadmap](https://github.
 
 Uses [Unity 2019.4.26f1 (LTS)](https://unity.com/) and [Joaoborks' Patch to the CardboardXR Plugin](https://github.com/joaoborks/cardboard-xr-plugin/tree/feature/xr_interaction).
 
-This code follows [Google's C# Styleguide](https://google.github.io/styleguide/csharp-style.html).
+This code follows [Google's C# Style Guide](https://google.github.io/styleguide/csharp-style.html) and the [Ramen Unity Style Guide](https://github.com/stillwwater/UnityStyleGuide).
 
 &nbsp;
 
@@ -23,6 +23,12 @@ This code follows [Google's C# Styleguide](https://google.github.io/styleguide/c
 [![](https://img.shields.io/badge/-Download_On_PlayStore-default)](https://play.google.com/store/apps/details?id=com.unity3d.MoleculesVRAndroidTest)
 [![](https://img.shields.io/badge/-Download_On_AppStore-blue)](https://apps.apple.com/us/app/materials-vr/id1533090685)
 [![](https://img.shields.io/badge/-PC_Version_GitHub-orange)](https://github.com/aschleife/MaterialsVR)
+
+&nbsp;
+
+## Features
+- Click and drag molecules around the space
+- Gaze at a button for 2 seconds to activate it
 
 &nbsp;
 
@@ -44,6 +50,8 @@ This code follows [Google's C# Styleguide](https://google.github.io/styleguide/c
 2. Open with the correct Unity version (2019.4.26f1)
 
 ## Asset Bundle Building Instructions
+[Video Tutorial](https://youtu.be/Dzn0RGZ-Cbs)
+
 1. Export Blender file as a `.fbx`
 2. Drag and drop file into the `~MoleculeModels` folder in Unity 
 3. Drag and drop model into Unity hierarchy from `~MoleculeModels` folder

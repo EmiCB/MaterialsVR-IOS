@@ -2,12 +2,13 @@
 using Google.XR.Cardboard;
 using UnityEngine.XR.Management;
 #endif
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SpatialTracking;
 
-public class XRCardboardController : MonoBehaviour
+public class XRCardboardController : MonoBehaviour 
 {
     [SerializeField]
     Transform cameraTransform = default;

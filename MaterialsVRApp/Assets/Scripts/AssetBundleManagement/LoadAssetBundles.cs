@@ -19,7 +19,7 @@ public class LoadAssetBundles : MonoBehaviour {
 
     private void Awake() {
         // set path correctly based on current device platform
-        _assetBundleServerURL = "https://schleife.web.illinois.edu/vr_phone/MoleculeBundles/" + getAssetBundlePlatformFolder() + "/molecules";
+        _assetBundleServerURL = "https://schleife.web.illinois.edu/vr_phone/MoleculeBundles/" + GetAssetBundlePlatformFolder() + "/molecules";
         
         // get and load the assetbundle
         StartCoroutine(GetAssetBundle());
@@ -32,7 +32,7 @@ public class LoadAssetBundles : MonoBehaviour {
     /// <remarks>
     /// Add in a new "if" statement for any additional platforms.
     /// </remarks>
-    private string getAssetBundlePlatformFolder() {
+    private string GetAssetBundlePlatformFolder() {
         RuntimePlatform currentPlatform = Application.platform;
 
         if (currentPlatform == RuntimePlatform.IPhonePlayer) return "iOS";
@@ -65,6 +65,7 @@ public class LoadAssetBundles : MonoBehaviour {
         for (int i = 0; i < moleculeList.Length; i++) {
             Instantiate(moleculeList[i]);
             instantiatedMolecules[i] = GameObject.Find(moleculeList[i].name + "(Clone)");
+            instantiatedMolecules[i].AddComponent<MoleculeController>();
             instantiatedMolecules[i].SetActive(false);
         }
 
