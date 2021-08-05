@@ -45,7 +45,17 @@ public class XRCardboardInputModule : PointerInputModule
         var raycastResults = new List<RaycastResult>();
         eventSystem.RaycastAll(pointerEventData, raycastResults);
         raycastResults = raycastResults.OrderBy(r => !r.module.GetComponent<GraphicRaycaster>()).ToList();
-        pointerEventData.pointerCurrentRaycast = FindFirstRaycast(raycastResults);
+
+        // loop through and remove any ignored results
+        var newResults = new List<RaycastResult>();
+        foreach (RaycastResult result in raycastResults) {
+            if (result.gameObject.tag != "GazeIgnore") {
+                newResults.Add(result);
+            }
+        }
+
+        //pointerEventData.pointerCurrentRaycast = FindFirstRaycast(raycastResults);
+        pointerEventData.pointerCurrentRaycast = FindFirstRaycast(newResults);
         ProcessMove(pointerEventData);
     }
 

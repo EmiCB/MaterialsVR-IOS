@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 1156130028}
   - component: {fileID: 1156130027}
   - component: {fileID: 1156130031}
+  - component: {fileID: 1156130032}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -314,12 +315,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156130026}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19b9e35f128834c41a725ef6884c0532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: 0
+--- !u!114 &1156130032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156130026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb2b5f7ac74243a29af0512fc5eceb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1187008895
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,9 +346,10 @@ GameObject:
   - component: {fileID: 1187008897}
   - component: {fileID: 1187008896}
   - component: {fileID: 1187008900}
+  - component: {fileID: 1187008901}
   m_Layer: 0
   m_Name: Crafting Box
-  m_TagString: Untagged
+  m_TagString: GazeIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,6 +444,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1187008901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187008895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89829d2d48fe043598e25713873d5f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1714164031
 GameObject:
   m_ObjectHideFlags: 0
